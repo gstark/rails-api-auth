@@ -29,6 +29,20 @@ class App extends React.Component {
         // Set the calendar data
         this.setState({calendar: data})
       })
+
+      // Fetch the calendars
+      window.fetch('http://localhost:3000/user_info', {
+        headers: {
+          // JSON
+          'Content-Type': 'application/json',
+          // Set the access token
+          'Authorization': 'Bearer ' + this.state.token
+        }
+      })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+      })
     }
   }
 

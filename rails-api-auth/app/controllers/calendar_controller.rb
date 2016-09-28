@@ -8,5 +8,13 @@ class CalendarController < ApplicationController
       render json: events.to_h
     end
   end
+
+  def user_info
+    if decoded_token.empty?
+      render json: []
+    else
+      render json: user_api.get_person("me", options: { authorization: user_credentials }).to_h
+    end
+  end
 end
 

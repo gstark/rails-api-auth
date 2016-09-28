@@ -11,6 +11,10 @@ protected
     end
   end
 
+  def user_api
+    Google::Apis::PlusV1::PlusService.new
+  end
+
   def calendar_api
     Google::Apis::CalendarV3::CalendarService.new
   end
