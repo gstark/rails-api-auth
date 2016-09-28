@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/oauth2authorize' => 'authentication#oauth2authorize'
+  get '/oauth2callback'  => 'authentication#oauth2callback'
+
+  get '/calendar' => 'calendar#index'
+
+  root 'authentication#root'
 end
